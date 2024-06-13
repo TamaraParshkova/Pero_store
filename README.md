@@ -33,10 +33,10 @@ venv\Scripts\activate
 
 ```
 pip install requirements.txt
-
 ```
 
 - Create migrations:
+
 ```
 python manage.py makemigrations
 
@@ -46,7 +46,7 @@ python manage.py migrate
 - Create superuser:
 
 ```
-Pthon manage.py createsuperuser
+Python manage.py createsuperuser
 ```
 
 ```
