@@ -1,0 +1,39 @@
+
+.cart { 
+    width: 80%;
+    border: 4px double black; /* Рамка вокруг таблицы */
+    border-collapse: collapse; /* Отображать только одинарные линии */
+    font-size: 17px;
+    text-align: center;
+    margin: 0 auto 15px;
+
+}
+th { 
+    height: 50px;
+    min-width: 70px;
+    color:white;
+    text-align: left; /* Выравнивание по левому краю */
+    background: #6c757d; /* Цвет фона ячеек */
+    padding: 5px; /* Поля вокруг содержимого ячеек */
+    border: 1px solid black; /* Граница вокруг ячеек */
+    
+}
+td { 
+    padding: 5px; /* Поля вокруг содержимого ячеек */
+    border: 1px solid black; /* Граница вокруг ячеек */
+   }
+p {padding: 15px;}
+
+.cart img {
+    width: 100px;}
+
+button a {
+    text-decoration: none;
+    color: white;
+    size: 17px;
+    } 
+
+#id_quantity{
+width: 20%;
+border: none;}    
+    

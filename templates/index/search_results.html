@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content">
+    <div class="container">
+        <h4>Результаты поиска</h4>
+        {% if products %}
+            <ol class="list-group">
+                {% for product in products %}
+                    <li>
+                        <a class="link-dark" href="{{ product.get_absolute_url}}"> 
+                            <div  class='img_prod'>
+                                <img src="{{ product.image.url }}"> {{product.name}}</div>
+                        </a>    
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>По вашему запросу ничего не найдено.</p>
+        {% endif %}
+    </div>
+</div>    
+{% endblock %}

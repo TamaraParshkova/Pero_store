@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+<title>{% block title %} Главная страница {% endblock title %}</title> 
+{% block content%}
+<div class='content'>
+    {% include "index/messages.html" %}
+
+    <h4>Категории товаров</h4>
+    <div class="carousel">
+        <div class=""> 
+            <div class="carousel-button-left"><a href="#"></a></div> 
+            <div class="carousel-button-right"><a href="#"></a></div> 
+            <div class="carousel-wrapper"> 
+                <div class="carousel-items"> 
+                    {% for cat in categories %}
+                        <div class="carousel-block"> 
+                            <div class='item_cat'>
+                                <a href="{% url 'products' %}#{{cat.slug}}">
+                                    <div class= 'img_cat'><img src="{{cat.image.url }}"></div>
+                                    <div class='text-center'>{{cat.name}}</div>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}   
+                </div>
+             </div>
+        </div>
+     </div>	
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
+                <h4>Хиты продаж</h4>
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">    
+            <h4>Акции недели</h4>
+        </button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="cont_prods">
+                {% for prod in  hit %}
+                    {% if prod.discount %}
+                        {% include "catalog/prod_sale.html" %}
+                    {% else %}
+                        {% include "catalog/prod_without_sale.html" %}
+                    {% endif %}      
+                {% endfor %}
+            </div>    
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="cont_prods">
+                {% for prod in sale %}
+                    {% include "catalog/prod_sale.html" %}
+                {% endfor %}
+            </div> 
+        </div>
+      </div>  
+    </div>
+ <div class='sticky-bottom d-block mr-auto'> 
+    <a class="btn btn-secondary btn-lg" href="#top" role="button">Вверх
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+            <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0"/>
+          </svg>
+    </a>
+</div> 
+{% endblock content %}

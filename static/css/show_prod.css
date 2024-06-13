@@ -1,0 +1,40 @@
+.main img {
+    width: 300px;
+    float: left;
+}
+.main {
+    margin: 20px auto;
+    width: 85%;
+    font-size: 17px;
+    }
+
+.main .cont {
+    padding-left: 20px ;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 35px;
+    }
+
+.name {
+    font-size: 30px;
+    font-weight: 600;
+    padding: 15px;
+    }
+
+.d_add_cart{
+    font-size: 17px;
+    }
+
+.description {
+    font-size: 18px;
+    text-indent: 2rem;
+    text-align: justify;
+    }
+
+.disc_price_show_prod {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 25px;
+}

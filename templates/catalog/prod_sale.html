@@ -1,0 +1,36 @@
+{% load static %}
+<div class="item_prod">
+    <div class='cont_attr'>
+        <div class='discount'>{{prod.discount}} %</div>
+        {% if prod.hit %} 
+            <div class='hit'>Hit</div>
+        {% endif %}
+    </div>    
+    <a href="{{ prod.get_absolute_url}}"> 
+        <div  class='img_prod'>
+            <img src="{{ prod.image.url }}">
+        </div>
+        <div class="details">
+            <div class='name_details'>{{prod.name}}</div>
+            <div class='stock'>В наличии: <span id = "stock">{{prod.stock}}</span></div>
+            <div class='price_cat'>{{prod.sell_price}} BYN
+                <span class='d_price_cat'><del>{{prod.price}} BYN</del></span>
+            </div>
+            <div class='disc_pr'>Экономия: {{prod.discounted_price}} BYN</div>                             
+        </div>    
+    </a>    
+    <div class="add_cart">
+        <form action="{% url "cart_add" prod.id %}" method="post">
+            {% csrf_token %}
+            {{ cart_product_form.as_div }} 
+            {% if cart_product_form.errors %}
+                <div class="alert alert-danger">
+                    {% for error in cart_product_form.non_field_errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <button type="submit" class="btn btn-danger">В корзину</button> 
+        </form>  
+    </div>  
+</div>   

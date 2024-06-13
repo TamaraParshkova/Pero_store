@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block link %}<link rel="stylesheet" href="{% static "css/detail.css" %}" />{% endblock %}
+{% block title %} Корзина {% endblock %}
+{% block content %}
+<div class='content'>
+    <h4>Корзина</h4>
+    {% include "cart/cart.html" %}
+        <p class="d-inline-flex gap-1">
+            <button class="btn btn-secondary" type="button"><a href="{% url 'products' %}">Продолжить покупки</a></button>
+            <button class="btn btn-secondary" type="button"><a href="{% url 'order' %}">Заказать</a></button>
+        </p>  
+</div>
+{% endblock %}

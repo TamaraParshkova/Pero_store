@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+    <title>{% block title %} {{ prod.name }} {% endblock title %}</title> 
+    {% block content%}
+        <div class='main'>
+            {% include "index/messages.html" %}
+            {% for cat in categories %}{% endfor %}
+                        
+            <h4 class='name'>{{prod.name}}</h4>
+            <div class='cont_attr'>
+                {% if prod.discount > 0 %} 
+                    <div class='discount'>{{prod.discount}} %</div> 
+                {% endif %}
+                {% if prod.hit %} 
+                    <div class='hit'>Hit</div> 
+                {% endif %}
+            </div>  
+            <div><img src="{{prod.image.url }}"></div>
+            <div  class="cont">
+                {% if prod.discount %}
+                    <div class='disc_price_show_prod'> 
+                        Цена: 
+                        <div class='d_price_cat'><del>{{prod.price}} BYN</del></div>
+                        <div class='price_cat'>{{prod.sell_price}} BYN</div>
+                        <div class='disc_pr'>Экономия: {{prod.discounted_price}} BYN</div>   
+                    </div>        
+                    <div class='d_add_cart'>
+                        <form action="{% url "cart_add" prod.id %}" method="post">
+                            {{ cart_product_form }}
+                            {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">В корзину</button>
+                    </div>  
+                {% else %}
+                    <div class='price'>Цена: {{prod.price}} BYN</div>
+                    <div class='d_add_cart'>
+                        <form action="{% url "cart_add" prod.id %}" method="post">
+                            {{ cart_product_form }}
+                            {% csrf_token %}
+                            <button id='massage' type="submit" class="btn btn-danger">В корзину</button>
+                        </form>
+                    </div>  
+                {% endif %}
+                <div class='description'>{{prod.description|linebreaksbr}}</div>
+            </div>    
+        </div>
+    {% endblock content %}

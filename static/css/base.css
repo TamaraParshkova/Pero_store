@@ -1,0 +1,75 @@
+@font-face {
+    font-family: "Merriweather-Italic"; 
+    src: url("fonts/Merriweather-Italic.ttf"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+* {
+    font-family: "Merriweather-Italic"; 
+}
+
+
+.cont_footer{
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    /* background: #c6c0bc1c; */
+    position: absolute;
+    height: 100px;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #7f7b7b;
+}
+.footer_cont1 {
+
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+    width: 100%;
+    justify-content: space-around;
+    border: 1px solid white;
+    }
+
+.footer_item {
+    line-height: 25px;
+    border-radius: 8px;
+    text-align: center;
+    }    
+
+.footer_item :first-child {
+    margin-bottom: 0;
+}
+
+.footer_cont2 {
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+    width: 100%;
+    justify-content: space-around;
+    /* background: #dbd4d01c; */
+    border: 1px solid white;
+    color: dimgray;
+    }
+
+footer a {
+    text-decoration: none;
+    }   
+    
+    
+header {
+    font-size: 20px;
+    height: 130px;
+    }    
+
+.map {
+    float: left;
+}
+
+.messages {
+    margin: 0 25%;
+    width: 50%;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}    
+
