@@ -49,8 +49,6 @@ python manage.py migrate
 Python manage.py createsuperuser
 ```
 
-```
-
 - Run server:
 
 ```
